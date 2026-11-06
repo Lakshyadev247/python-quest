@@ -73,6 +73,50 @@ If you just want to play and learn without compiling from source, download the p
 
 ---
 
+## 📸 Screenshots & Application Preview
+
+### 1. Interactive Dashboard & Progression
+Track your real-time XP, completed levels, and current curriculum ranking alongside your animated Mini Reaper companion.
+
+![Dashboard Preview](https://raw.githubusercontent.com/Lakshyadev247/python-quest/assets/screenshots/01-dashboard.jpg)
+
+---
+
+### 2. Themed Worlds & Curriculum Progression
+Navigate through 12 progressive worlds and 126 structured levels covering complete Python fundamentals to advanced topics.
+
+![Curriculum Preview](https://raw.githubusercontent.com/Lakshyadev247/python-quest/assets/screenshots/02-curriculum.jpg)
+
+---
+
+### 3. Step-by-Step Pedagogical Lessons
+Clear, concept-driven explanations broken down with learning objectives, syntax breakdowns, and practical code examples.
+
+![Lesson Preview](https://raw.githubusercontent.com/Lakshyadev247/python-quest/assets/screenshots/03-lesson.jpg)
+
+---
+
+### 4. Interactive Coding Playground
+Write, test, and experiment with real Python code instantly in an integrated Monaco editor sandbox with quick templates.
+
+![Playground Preview](https://raw.githubusercontent.com/Lakshyadev247/python-quest/assets/screenshots/04-playground.jpg)
+
+---
+
+### 5. Player Profile & Rank Progression Ladder
+Level up your developer rank from Beginner to Python Master as you solve coding challenges and earn XP.
+
+![Profile Preview](https://raw.githubusercontent.com/Lakshyadev247/python-quest/assets/screenshots/05-profile.jpg)
+
+---
+
+### 6. Settings, Customization & Companion Pet
+Configure dark/light display themes, card interface styles, curriculum progression modes, and companion mascot reactions.
+
+![Settings Preview](https://raw.githubusercontent.com/Lakshyadev247/python-quest/assets/screenshots/06-settings.jpg)
+
+---
+
 ## 🛠️ How It's Built & Technical Architecture
 
 Python Quest is designed with a lightweight, decoupled architecture capable of running both in a full client-server stack and in a 100% client-side offline sandbox:
