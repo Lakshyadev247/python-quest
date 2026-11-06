@@ -1,0 +1,24 @@
+{
+  "total_worlds": 12,
+  "total_levels": 126,
+  "worlds_status": {
+    "1": "completed",
+    "2": "completed",
+    "3": "completed",
+    "4": "completed",
+    "5": "completed",
+    "6": "completed",
+    "7": "completed",
+    "8": "completed",
+    "9": "completed",
+    "10": "completed",
+    "11": "completed",
+    "12": "completed"
+  },
+  "total_lessons": 126,
+  "total_challenges": 252,
+  "total_test_cases": 452,
+  "total_quiz_questions": 252,
+  "total_quiz_options": 1008,
+  "last_updated": "2026-11-02T02:43:00Z"
+}

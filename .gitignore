@@ -1,0 +1,65 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# PyInstaller build artifacts
+build/
+dist/
+
+# Standalone release binaries (uploaded to GitHub Releases)
+*.zip
+*.apk
+
+# Virtual Environments
+.venv/
+env/
+venv/
+ENV/
+
+# Frontend & Dependencies
+node_modules/
+frontend/node_modules/
+.npm/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Android Builds & Gradle Cache
+.gradle/
+temp/android-sdk-download/
+temp/android-user-home/
+frontend/android/.gradle/
+frontend/android/build/
+frontend/android/app/build/
+*.iml
+.idea/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Test screenshots and scratch tests
+**/test_screenshots/
+frontend/test_*.js
+frontend/browser_test.js
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Logs & temporary files
+*.log
+backend/*.log
+
+# Temporary SQLite logs
+*.db-journal
+*.db-wal
+
+# Local environment secrets
+.env
+
+# Auto-generated Flask session secret
+.secret_key
+backend/data/.secret_key

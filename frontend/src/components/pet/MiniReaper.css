@@ -1,0 +1,124 @@
+/* Mini Reaper — Python Quest mascot animations */
+.mini-reaper {
+  --reaper-purple: #a78bfa;
+  --reaper-deep: #211936;
+  --reaper-size: 220px;
+  width: var(--reaper-size);
+  max-width: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  color: #f5efff;
+  font-family: inherit;
+  user-select: none;
+  isolation: isolate;
+}
+.mini-reaper[role="button"] { cursor: pointer; }
+.mini-reaper:focus-visible { outline: 2px solid #c4b5fd; outline-offset: 6px; border-radius: 18px; }
+.reaper-stage { width: 100%; aspect-ratio: 240 / 260; position: relative; display: grid; place-items: center; }
+.reaper-svg { width: 100%; height: 100%; overflow: visible; position: relative; z-index: 2; }
+.reaper-aura {
+  position: absolute; width: 70%; height: 65%; top: 19%; left: 15%; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(139,92,246,.25), rgba(139,92,246,.07) 48%, transparent 72%);
+  filter: blur(9px); z-index: 0; animation: auraPulse 3s ease-in-out infinite;
+}
+.reaper-ground-glow {
+  position: absolute; width: 48%; height: 7%; bottom: 3%; left: 26%; border-radius: 50%;
+  background: rgba(139,92,246,.35); filter: blur(9px); z-index: 1;
+}
+.reaper-bubble {
+  position: relative; z-index: 5; max-width: 100%; margin: 0 auto 8px; padding: 9px 13px;
+  border: 1px solid rgba(196,181,253,.48); border-radius: 14px; background: rgba(31,24,48,.94);
+  color: #f5efff; box-shadow: 0 5px 22px rgba(0,0,0,.2), 0 0 16px rgba(139,92,246,.12);
+  font-size: clamp(11px, 2.5vw, 13px); line-height: 1.35; text-align: center;
+}
+.reaper-bubble i { position: absolute; bottom: -6px; left: calc(50% - 6px); width: 11px; height: 11px;
+  background: #1f1830; border-right: 1px solid rgba(196,181,253,.48); border-bottom: 1px solid rgba(196,181,253,.48); transform: rotate(45deg); }
+.reaper-spark { position: absolute; z-index: 3; color: #d8b4fe; opacity: .7; text-shadow: 0 0 10px #a855f7; animation: twinkle 2s ease-in-out infinite; }
+.spark-one { left: 8%; top: 35%; font-size: 17px; }
+.spark-two { right: 8%; top: 24%; font-size: 22px; animation-delay: .6s; }
+.spark-three { right: 16%; bottom: 19%; font-size: 13px; animation-delay: 1s; }
+.reaper-zzz, .reaper-question, .reaper-exclamation, .reaper-levelup {
+  position: absolute; z-index: 4; opacity: 0; pointer-events: none; font-weight: 900;
+  color: #e9d5ff; text-shadow: 0 0 12px #a855f7;
+}
+.reaper-zzz { right: 12%; top: 13%; font-size: 20px; }
+.reaper-question { right: 9%; top: 18%; font-size: 30px; }
+.reaper-exclamation { left: 13%; top: 14%; font-size: 29px; color: #fcd34d; }
+.reaper-levelup { top: 7%; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 18px; color: #fde68a; }
+.reaper-scythe { transform-origin: 185px 190px; }
+.prop-book, .prop-magnifier, .prop-keyboard, .prop-hint, .prop-loading, .prop-confetti, .prop-error { opacity: 0; }
+.reaper-eye { transform-box: fill-box; transform-origin: center; }
+.reaper-arm { transform-box: fill-box; transform-origin: center; }
+
+/* Base idle: gentle hover and breathing */
+.action-idle .reaper-svg, .action-listening .reaper-svg { animation: float 3s ease-in-out infinite; }
+.action-idle .reaper-body { animation: breathe 3s ease-in-out infinite; transform-origin: 118px 180px; }
+.action-idle .reaper-scythe { animation: scytheSway 4s ease-in-out infinite; }
+.action-thinking .reaper-head, .action-confused .reaper-head { animation: headTilt 1.1s ease-in-out infinite alternate; transform-origin: 118px 105px; }
+.action-thinking .reaper-eye { animation: eyeLook 1.4s ease-in-out infinite alternate; }
+.action-thinking .prop-loading, .action-loading .prop-loading { opacity: 1; animation: bob 1s ease-in-out infinite; }
+.action-searching .prop-magnifier { opacity: 1; animation: inspect 1.4s ease-in-out infinite; transform-origin: 181px 78px; }
+.action-searching .reaper-head { animation: lookAround .9s ease-in-out infinite alternate; }
+.action-reading .prop-book { opacity: 1; animation: bookRead 1.4s ease-in-out infinite; transform-origin: 165px 180px; }
+.action-reading .reaper-head { animation: nod 1.8s ease-in-out infinite; transform-origin: 118px 105px; }
+.action-typing .prop-keyboard { opacity: 1; animation: keyTap .24s ease-in-out infinite alternate; }
+.action-typing .reaper-arms { animation: typeArms .25s ease-in-out infinite alternate; }
+.action-explaining .arm-right { animation: explainArm .8s ease-in-out infinite alternate; }
+.action-explaining .reaper-head { animation: nod 1.5s ease-in-out infinite; transform-origin: 118px 105px; }
+.action-listening .reaper-head { animation: leanIn 1.5s ease-in-out infinite alternate; transform-origin: 118px 105px; }
+.action-happy .reaper-svg, .action-correct .reaper-svg { animation: happyBounce .55s ease-in-out infinite alternate; }
+.action-happy .reaper-eye, .action-correct .reaper-eye { animation: happyEyes .8s ease-in-out infinite; }
+.action-celebrating .reaper-svg, .action-levelUp .reaper-svg { animation: celebrateJump .7s ease-in-out infinite; }
+.action-celebrating .prop-confetti, .action-levelUp .prop-confetti { opacity: 1; animation: confettiFlash .6s ease-in-out infinite alternate; }
+.action-correct .reaper-exclamation, .action-hint .prop-hint { opacity: 1; animation: popIn .5s ease-out infinite alternate; }
+.action-wrong .reaper-head, .action-error .reaper-head { animation: nope .45s ease-in-out infinite; transform-origin: 118px 105px; }
+.action-wrong .reaper-arm, .action-error .reaper-arm { animation: facepalm .8s ease-in-out infinite alternate; }
+.action-error .prop-error { opacity: 1; animation: popIn .5s ease-in-out infinite alternate; }
+.action-confused .reaper-question { opacity: 1; animation: questionFloat 1.2s ease-in-out infinite; }
+.action-sleeping .reaper-svg { animation: sleepFloat 4s ease-in-out infinite; }
+.action-sleeping .reaper-eye { transform: scaleY(.12); }
+.action-sleeping .reaper-zzz { opacity: 1; animation: zzzFloat 2s ease-in-out infinite; }
+.action-waving .arm-right { animation: wave .35s ease-in-out infinite alternate; transform-origin: 184px 183px; }
+.action-waving .reaper-exclamation, .action-greeting .reaper-exclamation { opacity: 1; animation: popIn .5s ease-in-out infinite alternate; }
+.action-goodbye .arm-left { animation: wave .35s ease-in-out infinite alternate; transform-origin: 48px 184px; }
+.action-hint .reaper-head { animation: headTilt .9s ease-in-out infinite alternate; transform-origin: 118px 105px; }
+.action-loading .reaper-svg { animation: float .8s ease-in-out infinite; }
+.action-levelUp .reaper-levelup { opacity: 1; animation: levelText .9s ease-in-out infinite alternate; }
+
+@keyframes float { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-8px) rotate(1deg); } }
+@keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.025,1.015); } }
+@keyframes auraPulse { 0%,100% { opacity: .65; transform: scale(.94); } 50% { opacity: 1; transform: scale(1.08); } }
+@keyframes scytheSway { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(3deg); } }
+@keyframes twinkle { 0%,100% { opacity: .25; transform: scale(.8) rotate(0); } 50% { opacity: 1; transform: scale(1.2) rotate(20deg); } }
+@keyframes headTilt { from { transform: rotate(-5deg); } to { transform: rotate(6deg); } }
+@keyframes eyeLook { from { transform: translateX(-3px); } to { transform: translateX(4px); } }
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes inspect { 0%,100% { transform: rotate(-12deg) translate(0,0); } 50% { transform: rotate(12deg) translate(-5px,3px); } }
+@keyframes lookAround { from { transform: rotate(-7deg); } to { transform: rotate(7deg); } }
+@keyframes bookRead { 0%,100% { transform: rotate(-4deg); } 50% { transform: rotate(5deg) translateY(-3px); } }
+@keyframes nod { 0%,100% { transform: rotate(0); } 50% { transform: rotate(4deg) translateY(2px); } }
+@keyframes keyTap { from { transform: translateY(0); } to { transform: translateY(3px); } }
+@keyframes typeArms { from { transform: translateY(-1px); } to { transform: translateY(2px); } }
+@keyframes explainArm { from { transform: rotate(-18deg); } to { transform: rotate(22deg); } }
+@keyframes leanIn { from { transform: translateY(0) rotate(-2deg); } to { transform: translateY(4px) rotate(3deg); } }
+@keyframes happyBounce { from { transform: translateY(0) scale(1); } to { transform: translateY(-7px) scale(1.025); } }
+@keyframes happyEyes { 0%,45%,100% { transform: scaleY(1); } 50%,65% { transform: scaleY(.12); } }
+@keyframes celebrateJump { 0%,100% { transform: translateY(0) rotate(0); } 30% { transform: translateY(-16px) rotate(-5deg); } 65% { transform: translateY(-4px) rotate(5deg); } }
+@keyframes confettiFlash { from { opacity: .3; transform: scale(.9); } to { opacity: 1; transform: scale(1.12); } }
+@keyframes popIn { from { transform: scale(.75); } to { transform: scale(1.12); } }
+@keyframes nope { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-9deg); } 75% { transform: rotate(9deg); } }
+@keyframes facepalm { from { transform: rotate(-8deg); } to { transform: rotate(22deg) translate(-3px,-4px); } }
+@keyframes questionFloat { 0%,100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-9px) rotate(8deg); } }
+@keyframes sleepFloat { 0%,100% { transform: translateY(2px) rotate(-1deg); } 50% { transform: translateY(5px) rotate(1deg); } }
+@keyframes zzzFloat { 0% { transform: translate(0,5px) scale(.8); opacity: 0; } 40% { opacity: 1; } 100% { transform: translate(12px,-18px) scale(1.15); opacity: 0; } }
+@keyframes wave { from { transform: rotate(-24deg); } to { transform: rotate(28deg); } }
+@keyframes levelText { from { transform: translate(-50%,0) scale(.9); } to { transform: translate(-50%,-8px) scale(1.08); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .mini-reaper *, .mini-reaper *::before, .mini-reaper *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
